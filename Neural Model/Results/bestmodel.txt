@@ -1,0 +1,14 @@
+initial model 
+x = merge([u, m], mode='concat')
+x = Flatten()(x)
+x = Dropout(0.3)(x)
+x = Dense(100, activation='relu')(x)
+x = Dropout(0.5)(x)
+x = Dense(5,activation='relu')(x)
+x = Dense(1)(x)
+nn = Model([user_in, movie_in], x)
+nn.compile(Adam(0.001), loss='mse')
+
+batch size=64 epoch =7
+
+
